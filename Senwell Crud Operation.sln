@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Senwell Crud Operation", "Senwell Crud Operation\Senwell Crud Operation.csproj", "{6B716835-4100-4A4C-ADCD-6A8EA7118680}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B716835-4100-4A4C-ADCD-6A8EA7118680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B716835-4100-4A4C-ADCD-6A8EA7118680}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B716835-4100-4A4C-ADCD-6A8EA7118680}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B716835-4100-4A4C-ADCD-6A8EA7118680}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E2C7257-7419-4C9B-93B0-C71A607EEF78}
+	EndGlobalSection
+EndGlobal
