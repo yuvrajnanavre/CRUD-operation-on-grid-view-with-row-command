@@ -1,0 +1,80 @@
+ALTER proc [dbo].[sp_select]
+as
+begin
+select * from tblusdrate
+end
+=============================
+USE [CoreMvcDB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_update1]    Script Date: 05-06-2023 16:00:38 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[sp_update1]
+@Action varchar,
+@id int null,
+@Amount decimal(18,2) null,
+@Date nvarchar(100), 
+@ModifiedBy varchar (100)
+as 
+
+begin
+        if (select count(id) from tblusdrate where date=@date)=0
+		begin
+		UPDATE tblusdrate
+		SET Amount = @Amount, Date =@date,ModifiedBy=@ModifiedBy,ModifiedOn=(FORMAT(getdate(),'dd/MM/yyyy,hh:mm:ss'))
+		WHERE id = @id
+		select'Data saved successfully'
+		end
+		
+		if (select count(id) from tblusdrate where date=@date)=1
+		begin
+		UPDATE tblusdrate
+		SET Amount = @Amount,ModifiedBy=@ModifiedBy,ModifiedOn=(FORMAT(getdate(),'dd/MM/yyyy,hh:mm:ss'))
+		WHERE id = @id
+		select'Data saved successfully : If you goes to date change and if date is alreday available in another row then it cant update'
+		end
+end
+================================================================
+USE [CoreMvcDB]
+GO
+/****** Object:  StoredProcedure [dbo].[sp_delete]    Script Date: 05-06-2023 16:05:08 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER proc [dbo].[sp_delete]
+@id int null
+as 
+begin
+SET NOCOUNT ON;
+
+ DELETE FROM tblusdrate
+		WHERE id = @id --and Amount=@Amount and Date=@Date and CreatedBy=@CreatedBy
+		select 'Do you want to delete?'
+END
+=======================================================================================================
+USE [CoreMvcDB]
+GO
+
+/****** Object:  Table [dbo].[tblusdrate]    Script Date: 05-06-2023 16:09:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tblusdrate](
+	[id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Amount] [decimal](18, 2) NULL,
+	[Date] [nvarchar](100) NULL,
+	[CreatedBy] [varchar](50) NULL,
+	[CreatedOn] [nvarchar](100) NULL,
+	[ModifiedBy] [varchar](50) NULL,
+	[ModifiedOn] [nvarchar](100) NULL
+) ON [PRIMARY]
+GO
+
+
+=====================================================
